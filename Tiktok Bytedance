@@ -1,0 +1,8 @@
+Problem and Challenges 
+- Internal organisation docks in a new dashboard system where all the data format is different from the previous one. 
+- Faces copy paste problem into reporting file due to different format
+- Raw data contains different special characters that affects readibility and copy paste problem
+
+Action
+- Develop new Excel codes for trimming and removing special characters
+- E.g. 
