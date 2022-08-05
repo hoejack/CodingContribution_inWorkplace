@@ -4,5 +4,46 @@ Problem and Challenges
 - Raw data contains different special characters that affects readibility and copy paste problem
 
 Action
-- Develop new Excel codes for trimming and removing special characters
-- E.g. 
+- Develop new Excel codes for trimming and removing special characters (Some info has been slightly modified as it involves employer's intellectual asset)
+
+---------------------------------------------------------
+
+1. RAW DATA CONTAINS UNNECESSARY CHARACTERS
+E.g. 
+["[\"Misinterpretation on Company Guidelines\"]"]
+
+Create New Column with new developed code function
+
+=MID(A1, 6, LEN(A1)-10)
+
+RESULT -->
+Misinterpretation on Company Guidelines
+
+----------------------------------------------------------
+
+2. CONCATENATE TWO COLUMN STRINGS INTO ONE & CLEANING UNNECESSARY CHARACTERS
+
+Create New Column with new developed code function, joining two different column string into one.
+E.g. 
+Column A: Null
+Column B: ["Sexualised Content"]
+
+=SUBSTITUTE(SUBSTITUTE(TEXTJOIN( , TRUE, COLUMN A, COLUMN B), "[", ""), "]", "")
+
+RESULT -->
+NEW COLUMN: "Sexualised Content"
+
+----------------------------------------------------------
+
+3. CONCATENATE THREE COLUMN STRINGS INTO ONE & CLEANING UNNECESSARY CHARACTERS & TO AVOID DUPLICATING STRINGS
+E.g. 
+Column A: Null
+Column B: ["Sexualised Content"]
+Column C: ["Sexualised Content"]
+
+=SUBSTITUTE(SUBSTITUTE(IF(ISBLANK(COLUMN B),TEXTJOIN(,FALSE ,COLUMN A, COLUMN C), COLUMN B), "[", ""), "]", "")
+
+RESULT -->
+NEW COLUMN: "Sexualised Content"
+
+
