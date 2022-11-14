@@ -1,0 +1,21 @@
+Problem and Challenges 
+- Team lead requested to track vendor's escalation from several tracker files while we always lost track with the count
+- Team needs to calculate our review productivity on different review queues by day and by month basis. Have been manually calculated before I joined the company.
+
+Action
+- Build new productivity dashboard that auto calculates the total reviewed cases by person name and date. 
+- Teammates will just need to enter their name and month/day and dashboard will do the entire calculation
+- Using ImportRange function to track vendor's escalation file and auto-calculates the escalation (Full automation)
+(Some info has been slightly modified as it involves employer's intellectual asset)
+
+--------------------------------------
+
+Several Codes Built for the Dashboard
+=IF(ISBLANK(A11), 0, SUM(COUNTIFS('XXX Company ImportRange'!$A$3:$A$7000,  A11, 'XXX Company ImportRange'!$B$3:$B$7000, C11), COUNTIFS('YYY Company ImportRange'!$A$3:$A$8200, A11, 'YYY Company ImportRange'!$B$3:$B$8200, C11)))
+This code extracts all escalation information from other's company into our docs and auto-calculates the numbers of escalation based on certain condition (using COUNTIFS to count cases by name and by date)
+
+=SUMIFS(N5:N2000, $B$5:$B$2000, $B$2, $A$5:$A$2000, $B$1)
+Basic SUM calculation for certain conditions
+
+=IF(ISBLANK(C13), "", MONTH(C13))
+Change Datetime object to Month only to perform Monthly Calculation
